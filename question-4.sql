@@ -4,7 +4,7 @@ SELECT employees.FirstName, employees.LastName,
 FROM employees
 JOIN customers ON employees.EmployeeId = customers.SupportRepId
 JOIN invoices ON customers.CustomerId = invoices.CustomerId
-WHERE strftime ('%Y', invoices.InvoiceDate) =  '2010'
+WHERE strftime ('%Y', invoices.InvoiceDate) like '2010%'
 GROUP BY employees.EmployeeId
 ORDER BY total_sales DESC
 LIMIT 1;
